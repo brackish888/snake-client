@@ -9,14 +9,21 @@ const connect = function() {
       console.log("Successfully connected to game server");
    
    conn.write('Name: SAM')
+   setInterval(function(){
+     conn.write("Move: up")
+   }, 100)
+
+
   });
+//   conn.on('connect', function() {
+//   conn.write('Move: up');
+// });
+
    conn.on('data', (data) => {
   console.log(data);
-})
-  conn.setEncoding('utf8'); 
-
- 
-
+});
+  
+  conn.setEncoding('utf8');
   
   return conn;
 };
