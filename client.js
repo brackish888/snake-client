@@ -8,24 +8,24 @@ const connect = function() {
       console.log("Successfully connected to game server");
    
    conn.write('Name: SAM'); 
+   
 
 
-
-   setTimeout(function(){
-     conn.write("Move: up")
-   }, 100);
-   setInterval(() => {
-     conn.write("Move: right")
-   }, 100);
-   setInterval(() => {
-     conn.write("Move: down")
-   }, 100);
-   setInterval(() => {
-    conn.write("Move: left")
-  }, 100);
+  //  setTimeout(function(){
+  //    conn.write("Move: up")
+  //  }, 100);
+  //  setInterval(() => {
+  //    conn.write("Move: right")
+  //  }, 100);
+  //  setInterval(() => {
+  //    conn.write("Move: down")
+  //  }, 100);
+  //  setInterval(() => {
+  //   conn.write("Move: left")
+  // }, 1000);
   });
  }
-//   
+  
 
 //   // process.stdin.on('data', (key) => {
 //   //   process.stdout.write('.');
@@ -45,4 +45,4 @@ const connect = function() {
 // };
 
 module.exports = connect
-// module.exports = setupInput;
+// module.exports = setupInput
