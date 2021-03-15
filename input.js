@@ -47,12 +47,14 @@ const handleUserInput = stdinInput => {
 
     setTimeout(() => {
       connection.write('Move: right');
-    }, 300); 
+    }, 300);
   }
 
   if (stdinInput === 'q') {
     console.log("Say something!");
-    connection.write('You sssssssssuck');
+    setTimeout(() => {
+      connection.write('You sssssssssuck');
+    }, 300);
   }
 };
 
