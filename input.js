@@ -1,30 +1,5 @@
 let connection;
 
-const handleUserInput = key => {
-  if (key === '\u0003') {
-    console.log("Exit Game");
-    process.exit();
-  }
-  // https://nodejs.dev/learn/how-to-exit-from-a-nodejs-program
-  // https://www.w3schools.com/js/js_switch.asp
-  
-  console.log(key);
-  switch (key) {
-    case "\033[A"://up
-      connection.write("Move: up");
-      break;
-    case "\033[B"://down
-      connection.write("Move: down");
-      break;
-    case "\033[D"://left
-      connection.write("Move: left");
-      break;
-    case "\033[C"://right
-      connection.write("Move: right");
-      break;
-  }
-};
-
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -34,6 +9,53 @@ const setupInput = function(conn) {
   process.stdin.on("data", handleUserInput);
   return stdin;
 };
+
+const handleUserInput = stdinInput => {
+  if (stdinInput === '\u0003') {
+    console.log("Exit Game");
+    process.exit();
+  }
+  // https://nodejs.dev/learn/how-to-exit-from-a-nodejs-program
+  // https://www.w3schools.com/js/js_switch.asp
+ 
+  if (stdinInput === 'w') {
+    console.log("Moved up!");
+
+    setTimeout(() => {
+      connection.write('Move: up');
+    }, 300);
+  }
+
+  if (stdinInput === 'a') {
+    console.log("Moved left!");
+
+    setTimeout(() => {
+      connection.write('Move: left');
+    }, 300);
+  }
+
+  if (stdinInput === 's') {
+    console.log("Moved down!");
+
+    setTimeout(() => {
+      connection.write('Move: down');
+    }, 300);
+  }
+
+  if (stdinInput === 'd') {
+    console.log("Moved right!");
+
+    setTimeout(() => {
+      connection.write('Move: right');
+    }, 300); 
+  }
+
+  if (stdinInput === 'q') {
+    console.log("Say something!");
+    connection.write('You sssssssssuck');
+  }
+};
+
 
 
 
